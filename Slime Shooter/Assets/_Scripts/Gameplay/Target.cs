@@ -10,6 +10,10 @@ public class Target : MonoBehaviour
     public Collider2D col;
     public bool isGrowing = true;
 
+    private float lifeTime;
+    private float soundTimer = 0.6f;
+    [SerializeField] private AudioClip alarm;
+
     [SerializeField] private Score score;
     [SerializeField] private Tries tries;
 
@@ -17,6 +21,7 @@ public class Target : MonoBehaviour
     private ParticleSystem particle;
 
     [SerializeField] private AudioClip balloonExplosion;
+    [SerializeField] private GameObject flashAnimation;
 
     private void OnEnable()
     {
@@ -24,6 +29,24 @@ public class Target : MonoBehaviour
         isGrowing = true;
         targetType = Random.Range(0, gameCore.maxType + 1);
         spriteRenderer.sprite = sprite[targetType];
+        lifeTime = 8.0f;
+    }
+
+    private void Update()
+    {
+        if (lifeTime > 0)
+        {
+            lifeTime -= Time.deltaTime;
+            if (lifeTime <= 3)
+            {
+                soundTimer -= Time.deltaTime;
+                if(soundTimer < 0)
+                {
+                    SoundPlayer.instance.PlaySFX(alarm);
+                    soundTimer = 0.6f;
+                }
+            }
+        }
     }
 
     public void TargetExplosion()
@@ -46,11 +69,16 @@ public class Target : MonoBehaviour
         particle.Play();
         transform.parent.gameObject.SetActive(false);      
         score.AddScore();
-        //Toca sons felizes
+    }
+
+    public void ActivateFlashAnimation()
+    {
+        flashAnimation.SetActive(true);
     }
 
     private void OnDisable()
     {
+        flashAnimation.SetActive(false);
         gameCore.balloonQtd--;
     }
 }

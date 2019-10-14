@@ -34,7 +34,7 @@ public class GameCore : MonoBehaviour
 
         if(spawnBalloons)
         {
-            if (waveIndex < 16)
+            if (waveIndex < 13)
             {
                 if (balloonQtd <= 0)
                 {
@@ -47,7 +47,7 @@ public class GameCore : MonoBehaviour
                     if (spawnDelay <= 0)
                     {
                         spawnQtd--;
-                        spawnDelay = 2.0f;
+                        spawnDelay = 1.5f;
                         spawnTargets.Spawn();
                     }
                 }
@@ -58,7 +58,7 @@ public class GameCore : MonoBehaviour
                 if (spawnDelay <= 0)
                 {
                     spawnQtd--;
-                    spawnDelay = 1.0f;
+                    spawnDelay = 2.0f;
                     spawnTargets.Spawn();
                 }
             }
@@ -88,11 +88,11 @@ public class GameCore : MonoBehaviour
                 break;
 
             case 5:
-                spawnQtd = 6;
-                break;
-            case 6:
                 slimes[2].SetActive(true);
                 maxType++;
+                spawnQtd = 6;
+                break;
+            case 6:                
                 spawnQtd = 6;
                 break;
 
@@ -101,20 +101,22 @@ public class GameCore : MonoBehaviour
                 break;
 
             case 8:
-                spawnQtd = 7;
-                break;
-
-            case 9:
-                spawnQtd = 7;
-                break;
-
-            case 10:
                 slimes[3].SetActive(true);
                 maxType++;
                 spawnQtd = 7;
                 break;
 
+            case 9:                
+                spawnQtd = 7;
+                break;
+
+            case 10:                
+                spawnQtd = 7;
+                break;
+
             case 11:
+                slimes[4].SetActive(true);
+                maxType++;
                 spawnQtd = 7;
                 break;
 
@@ -125,20 +127,6 @@ public class GameCore : MonoBehaviour
             case 13:
                 spawnQtd = 8;
                 break;
-
-            case 14:
-                spawnQtd = 9;
-                break;
-
-            case 15:
-                spawnQtd = 9;
-                break;
-
-            case 16:
-                slimes[4].SetActive(true);
-                maxType++;
-                break;
-
         }
         balloonQtd = spawnQtd;
         spawnBalloons = true;
@@ -151,7 +139,7 @@ public class GameCore : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         waveText.gameObject.SetActive(true);
-        if (waveIndex < 16)
+        if (waveIndex < 13)
         {
             waveText.text = "WAVE " + waveIndex.ToString();
         }
@@ -161,7 +149,7 @@ public class GameCore : MonoBehaviour
         }
         yield return new WaitForSeconds(2.0f);
 
-        if (waveIndex < 16)
+        if (waveIndex < 13)
         {
             waveText.text = "GET READY!";
         }

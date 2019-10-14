@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
 
     private void ChangeSlot()
     {
-        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown(KeyCode.E))
         {
             slotBackground[index].color = deselectedColor;
             index++;
@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
             slotBackground[index].color = selectedColor;
         }
 
-        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown(KeyCode.Q))
         {
             slotBackground[index].color = deselectedColor;
             index--;
