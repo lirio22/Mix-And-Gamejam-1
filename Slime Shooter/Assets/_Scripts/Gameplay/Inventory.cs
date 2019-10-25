@@ -72,6 +72,7 @@ public class Inventory : MonoBehaviour
         {
             if(slot[i] == null)
             {
+                _slime.scoreMultiplier = 1;
                 slot[i] = _slime;
                 slotIcon[i].gameObject.SetActive(true);
                 slotIcon[i].sprite = _slime.icon;

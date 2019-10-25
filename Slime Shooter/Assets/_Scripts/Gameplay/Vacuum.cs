@@ -4,6 +4,7 @@ public class Vacuum : MonoBehaviour
 {
     [SerializeField] private Effector2D effector;
     [SerializeField] private GameObject particles;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private Inventory inventory;
     [SerializeField] private Transform spawnPoint;
@@ -25,6 +26,7 @@ public class Vacuum : MonoBehaviour
         {            
             effector.enabled = true;
             particles.SetActive(true);
+            animator.enabled = true;
             SoundPlayer.instance.PlayVacuumLoop();
         }
 
@@ -32,6 +34,7 @@ public class Vacuum : MonoBehaviour
         {
             effector.enabled = false;
             particles.SetActive(false);
+            animator.enabled = false;
             SoundPlayer.instance.StopVacuumLoop();
         }        
     }

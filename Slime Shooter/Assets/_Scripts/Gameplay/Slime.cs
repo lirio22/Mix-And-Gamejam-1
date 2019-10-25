@@ -12,6 +12,8 @@ public class Slime : MonoBehaviour
     [SerializeField] private AudioClip bounceSound;
     [SerializeField] private AudioClip balloonPoped;
 
+    public int scoreMultiplier = 1;
+
     private void Start()
     {
         animator.Play("SlimeShowing");
@@ -19,6 +21,11 @@ public class Slime : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.CompareTag("ComboReset"))
+        {
+            scoreMultiplier = 1;
+        }
+
         if(other.CompareTag("Target"))
         {
             //Gets target component from object
@@ -29,7 +36,8 @@ public class Slime : MonoBehaviour
             {
                 //Calls the event that destroys the target and gives points
                 SoundPlayer.instance.PlaySFX(balloonPoped);
-                target.TargetDestroyed();
+                target.TargetDestroyed(100 * scoreMultiplier);
+                scoreMultiplier++;
             }
         }       
     }

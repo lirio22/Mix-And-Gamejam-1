@@ -23,6 +23,9 @@ public class Target : MonoBehaviour
     [SerializeField] private AudioClip balloonExplosion;
     [SerializeField] private GameObject flashAnimation;
 
+    [SerializeField] private GameObject pointsPile;
+    private PointsUI pointsUI;
+
     private void OnEnable()
     {
         col.isTrigger = true;
@@ -52,23 +55,48 @@ public class Target : MonoBehaviour
     public void TargetExplosion()
     {
         isGrowing = false;
-        transform.parent.gameObject.SetActive(false);
-        particle = particlePile.transform.GetChild(0).GetComponent<ParticleSystem>();
-        particle.gameObject.transform.position = new Vector3(transform.parent.gameObject.transform.position.x, transform.parent.gameObject.transform.position.y, -1.0f);
-        particle.Play();
+        transform.parent.gameObject.SetActive(false);        
+        for (int i = 0; i < particlePile.transform.childCount; i++)
+        {
+            if (!particlePile.transform.GetChild(i).gameObject.activeSelf)
+            {                
+                particlePile.transform.GetChild(i).transform.position = new Vector3(transform.parent.gameObject.transform.position.x, transform.parent.gameObject.transform.position.y, -1.0f);
+                particlePile.transform.GetChild(i).gameObject.SetActive(true);
+                break;
+            }
+        }
         SoundPlayer.instance.PlaySFX(balloonExplosion);
         tries.RemoveTry();
     }
 
-    public void TargetDestroyed()
+    public void TargetDestroyed(int _points)
     {
         isGrowing = false;
         col.isTrigger = false;
-        particle = particlePile.transform.GetChild(0).GetComponent<ParticleSystem>();
-        particle.gameObject.transform.position = transform.parent.gameObject.transform.position;
-        particle.Play();
         transform.parent.gameObject.SetActive(false);      
-        score.AddScore();
+        score.AddScore(_points);
+
+        for (int i = 0; i < particlePile.transform.childCount; i++)
+        {            
+            if (!particlePile.transform.GetChild(i).gameObject.activeSelf)
+            {                
+                particlePile.transform.GetChild(i).transform.position = new Vector3(transform.parent.gameObject.transform.position.x, transform.parent.gameObject.transform.position.y, -1.0f);
+                particlePile.transform.GetChild(i).gameObject.SetActive(true);
+                break;
+            }
+        }
+
+        for (int i = 0; i < pointsPile.transform.childCount; i++)
+        {
+            if(!pointsPile.transform.GetChild(i).gameObject.activeSelf)
+            {
+                pointsUI = pointsPile.transform.GetChild(i).GetComponent<PointsUI>();
+                pointsUI.pointsText.text = "+" + _points.ToString();
+                pointsUI.transform.position = transform.position;
+                pointsUI.gameObject.SetActive(true);
+                break;
+            }
+        }
     }
 
     public void ActivateFlashAnimation()

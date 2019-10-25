@@ -47,7 +47,7 @@ public class GameCore : MonoBehaviour
                     if (spawnDelay <= 0)
                     {
                         spawnQtd--;
-                        spawnDelay = 1.5f;
+                        spawnDelay = 1.8f;
                         spawnTargets.Spawn();
                     }
                 }
@@ -58,7 +58,7 @@ public class GameCore : MonoBehaviour
                 if (spawnDelay <= 0)
                 {
                     spawnQtd--;
-                    spawnDelay = 2.0f;
+                    spawnDelay = 1.5f;
                     spawnTargets.Spawn();
                 }
             }
@@ -131,7 +131,7 @@ public class GameCore : MonoBehaviour
         balloonQtd = spawnQtd;
         spawnBalloons = true;
         spawnQtd--;
-        spawnDelay = 2.0f;
+        spawnDelay = 1.8f;
         spawnTargets.Spawn();
     }
 

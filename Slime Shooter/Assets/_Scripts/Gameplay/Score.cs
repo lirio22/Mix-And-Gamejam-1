@@ -9,11 +9,11 @@ public class Score : MonoBehaviour
     [SerializeField] private Tries tries;
     private int triesScore;
 
-    public void AddScore()
+    public void AddScore(int _points)
     {
-        score += 100;
+        score += _points;
         scoreText.text = score.ToString();
-        triesScore += 100;
+        triesScore += _points;
 
         if(PlayerPrefs.GetInt("Score") < score)
         {
