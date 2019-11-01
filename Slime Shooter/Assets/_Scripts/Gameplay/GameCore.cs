@@ -25,6 +25,7 @@ public class GameCore : MonoBehaviour
 
     private void Update()
     {
+        //Inicia a Wave
         if(canCall)
         {
             canCall = false;
@@ -32,6 +33,7 @@ public class GameCore : MonoBehaviour
             StartCoroutine(CallNextWave());
         }
 
+        //Após a Wave ser iniciada, ele ativa o spawn de balões até que todos sejam spawnados
         if(spawnBalloons)
         {
             if (waveIndex < 13)

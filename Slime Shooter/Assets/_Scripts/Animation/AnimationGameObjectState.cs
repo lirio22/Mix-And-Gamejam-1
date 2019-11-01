@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+//Esse Script recebe qualquer Game Object para ser ativado ou desativado em uma animação
 public class AnimationGameObjectState : MonoBehaviour
 {
     [SerializeField] private GameObject sceneObject;

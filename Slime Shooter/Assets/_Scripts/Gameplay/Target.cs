@@ -3,8 +3,10 @@
 public class Target : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprite;
+    [SerializeField] private Sprite[] whiteSprites;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameCore gameCore;
+    [SerializeField] private SpriteRenderer flashEffect;
     public int targetType;
 
     public Collider2D col;
@@ -32,6 +34,7 @@ public class Target : MonoBehaviour
         isGrowing = true;
         targetType = Random.Range(0, gameCore.maxType + 1);
         spriteRenderer.sprite = sprite[targetType];
+        flashEffect.sprite = whiteSprites[targetType];
         lifeTime = 8.0f;
     }
 

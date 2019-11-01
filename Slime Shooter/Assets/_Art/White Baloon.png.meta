@@ -5,6 +5,18 @@ TextureImporter:
   - first:
       213: 7757213598436955384
     second: White Baloon_0
+  - first:
+      213: 5574874005164584934
+    second: White Baloon_1
+  - first:
+      213: 6860311235183990673
+    second: White Baloon_2
+  - first:
+      213: 1975494777144105898
+    second: White Baloon_3
+  - first:
+      213: -5546739309102851389
+    second: White Baloon_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -112,8 +124,92 @@ TextureImporter:
       name: White Baloon_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 13
+        x: 3
+        y: 10
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1023e1d2a09f94c96f754f84cab7de
+      internalID: 7757213598436955384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White Baloon_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 10
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff29ce3cbd1e7345a91d3b6aa35d7ad
+      internalID: 5574874005164584934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White Baloon_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0a5d379296f6e4292f8382c600cd1d
+      internalID: 6860311235183990673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White Baloon_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04bfb800b5261454cabeaa9b0c207b10
+      internalID: 1975494777144105898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White Baloon_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
         width: 7
         height: 9
       alignment: 0
@@ -123,8 +219,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a653ec13355355942ba481ca1696f4c9
-      internalID: 7757213598436955384
+      spriteID: 723981f5109771a4394ab7fcab1fb497
+      internalID: -5546739309102851389
       vertices: []
       indices: 
       edges: []
